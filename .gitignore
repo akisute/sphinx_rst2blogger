@@ -1,0 +1,9 @@
+# osx noise files
+.DS_Store
+profile
+*.swp
+ 
+# sphinx noise files
+_*
+*.pyc
+
