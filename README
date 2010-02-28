@@ -1,0 +1,19 @@
+=============================
+Sphinx Extension: rst2Blogger
+=============================
+
+Translates reST drafts into Blogger non-WYSIWYG editor. Just copy and paste into the blog editor of blogger.com and you're done!
+
+Required settings
+=================
+
+* Make sure your editor of blogger is ** Non-WYSIWYG editor ** and enable ** convert new lines into <br> ** option before copy&paste.
+* Edit Makefile if you don't have TextMate.
+
+How to use
+==========
+
+:: 
+   make blogger
+
+That's all. If you have TextMate, the translated draft.txt will be opened by TextMate as soon as the build is completed. Just copy and paste it. If you prefer using pbcopy or you're not using Mac OS X then rewrite Makefile please.
