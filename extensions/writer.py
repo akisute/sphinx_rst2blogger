@@ -89,6 +89,9 @@ class BloggerTranslator(nodes.NodeVisitor):
         self.body = '\n'.join(line and (' '*indent + line)
                               for indent, lines in self.states[0]
                               for line in lines)
+        #ugly patch: do not make any linebreaks before and after following tags:
+        #<ul> <ol> <dl> <pre>
+        #before_re = re.compile(r'(\n)+(<ul>|<ol>|<dl>|<pre>)')
 
 
     # section and titles
@@ -103,9 +106,11 @@ class BloggerTranslator(nodes.NodeVisitor):
         pass
 
     def visit_title(self, node):
+        self.new_state(0)
         self.add_text(u'\n<span style="font-weight:bold; font-size:110%;">■')
     def depart_title(self, node):
         self.add_text(u'</span>')
+        self.end_state()
 
     def visit_subtitle(self, node):
         pass
